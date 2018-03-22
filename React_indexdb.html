@@ -1,0 +1,59 @@
+<DOCTYPE HTML!>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8" />
+      <title>Basic App</title>
+      <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+      <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+      <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+      <script src="https://npmcdn.com/style-it@latest/dist/style-it-standalone.js"></script>
+    <!--  <link rel="Stylesheet" type="text/css" href=".\Stylesheet.css">-->
+    </head>
+    <body>
+      <div id="root"></div>
+      <script type="text/babel">
+
+      class Hello extends React.Component {
+        componentDidMount() {
+          console.log('<Hello/> did mount')
+        }
+        render(){
+          return (
+        <h1>Hello</h1>
+      )
+    }
+  }
+
+class Button extends React.Component {
+    constructor(props){
+      super(props);
+      this.state ={
+        text: ''
+      }
+    }
+      componentDidMount(){
+        console.log('<Button/> did mount')
+        console.log(this.state.text)
+    }
+  render(){
+    return (
+      <div>
+        <button>{this.state.text}</button>
+        </div>
+    )
+  }
+}
+
+class App extends React.Component {
+  render(){
+    return (
+      <div>
+        <Hello/>
+        <Button/>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<App/>,document.getElementById("root"))
